@@ -3,32 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAOwAAADsAEnxA+tAAABKklEQVQ4jcWTvUoDURCFv/y0A2tnZ95AW7FZwQdQSO9aRLAJbp0mPkGCTSCBmPQW8Q1SuKTU4AvkEeQO2K6MuSFmN+pCCg9cLhdmzpwzh1tK05RdUN6p+yeCftKK+kmrW4SguvGaNc3PGGRUVEE18x4Dl9dlheP76OZxMQUCIOzVa++/W2jENYaV7oqEWTMETMmhv7fi+w4i4IVhxaaeAq+9es0aL4CJqoaqOsmSrGNsxCZ16ideMeiMVPVrJyISqerC7IhIsN3CoGMeTfYceKARn6/sqOozcADkktmMcU3y5KeZrQQ4ARxwpqpts5O3kIEvGvnJ1vwB7PuquYgc5RVs4tZHeAe8WbOIlIA9r3IJU/DXcc61nXOpcy7I1hb9C5aOLTeHf/6NwCdua48fJxuYPgAAAABJRU5ErkJggg=="
-    />
     <title>Motion Canvas Player</title>
-    <script type="module" crossorigin src="./main.js"></script>
-    <link rel="stylesheet" crossorigin href="./style.css" />
+    <script type="module" crossorigin src="/main.js"></script>
+    <link rel="stylesheet" crossorigin href="/style.css">
   </head>
   <body>
-    <motion-canvas-player
-      src="./project-1c5eb8a8.js"
-      style="aspect-ratio: 16 / 9"
-    >
-    </motion-canvas-player>
+    <div id="main-screen"></div>
+
     <div class="btn-list" id="btn-list">
       <button class="btn-prev" id="previous"></button>
       <button class="btn-next" id="next"></button>
     </div>
     <script>
-      // const indicator = document.querySelector("#indicator");
+      const screenBundleMap = {
+        intro: "/src/bundles/intro/src/index.js",
+        array: "/src/bundles/array/src/index.js",
+        stack: "/src/bundles/stack/src/index.js",
+        binary: "/src/bundles/binarysearch/src/index.js",
+      };
+
+      // get screen name from url params
+      const urlParams = new URLSearchParams(window.location.search);
+      const screen = urlParams.get("screen");
+
+      const mainScreen = document.querySelector("#main-screen");
+
+      mainScreen.innerHTML = `<motion-canvas-player
+          src="${screenBundleMap[screen]}"
+          style="aspect-ratio: 16 / 9"
+        >
+        </motion-canvas-player>`;
+
       const player = document.querySelector("motion-canvas-player");
       const btnList = document.querySelector("#btn-list");
       const previous = document.querySelector("#previous");
       const next = document.querySelector("#next");
+
       let init = true;
 
       btnList.addEventListener("click", (event) => {
