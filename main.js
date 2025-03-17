@@ -2264,9 +2264,7 @@ class Ae extends HTMLElement {
         /* webpackIgnore: true */
         /* @vite-ignore */
         t
-      );
-      console.log("promise", o);
-      const c = new Promise((p) => setTimeout(p, 200));
+      ), c = new Promise((p) => setTimeout(p, 200));
       await Promise.any([c, o]), this.setState(
         "loading"
         /* Loading */
@@ -2292,7 +2290,7 @@ class Ae extends HTMLElement {
         this.handlePlay(this.playing);
         break;
       case "src":
-        console.log("src", i), this.updateSource(i);
+        this.updateSource(i);
         break;
       case "quality":
       case "width":
