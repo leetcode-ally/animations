@@ -51,11 +51,15 @@
             if (!init && player.hasAttribute("data-overlay")) {
               // indicator.textContent = "playing";
               next.disabled = true;
+              next.classList.add("disabled");
               previous.disabled = true;
+              previous.classList.add("disabled");
             } else {
               // indicator.textContent = "paused";
               next.disabled = false;
+              next.classList.remove("disabled");
               previous.disabled = false;
+              previous.classList.remove("disabled");
             }
           }
         });
@@ -70,11 +74,15 @@
       if (player.hasAttribute("data-overlay")) {
         // indicator.textContent = "playing";
         next.disabled = true;
+        next.classList.add("disabled");
         previous.disabled = true;
+        previous.classList.add("disabled");
       } else {
         // indicator.textContent = "paused";
         next.disabled = false;
+        next.classList.remove("disabled");
         previous.disabled = false;
+        previous.classList.remove("disabled");
       }
     </script>
   </body>

@@ -2,3 +2,4 @@
 .btn-list{position:absolute;display:flex;width:100%;bottom:0;left:0;justify-content:space-between;align-items:center;}
 .btn-prev{background-color:transparent;border:none;color:#fff; font-size:20px; font-family: Poppins;}
 .btn-next{background-color:transparent;border:none;color:#fff; font-size:20px; font-family: Poppins;}
+.disabled{opacity:.5;pointer-events:none;}
