@@ -49,45 +49,45 @@
         init = false;
       });
 
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.attributeName === "data-overlay") {
-            if (!init && player.hasAttribute("data-overlay")) {
-              // indicator.textContent = "playing";
-              next.disabled = true;
-              next.classList.add("disabled");
-              previous.disabled = true;
-              previous.classList.add("disabled");
-            } else {
-              // indicator.textContent = "paused";
-              next.disabled = false;
-              next.classList.remove("disabled");
-              previous.disabled = false;
-              previous.classList.remove("disabled");
-            }
-          }
-        });
-      });
+      // const observer = new MutationObserver((mutations) => {
+      //   mutations.forEach((mutation) => {
+      //     if (mutation.attributeName === "data-overlay") {
+      //       if (!init && player.hasAttribute("data-overlay")) {
+      //         // indicator.textContent = "playing";
+      //         next.disabled = true;
+      //         next.classList.add("disabled");
+      //         previous.disabled = true;
+      //         previous.classList.add("disabled");
+      //       } else {
+      //         // indicator.textContent = "paused";
+      //         next.disabled = false;
+      //         next.classList.remove("disabled");
+      //         previous.disabled = false;
+      //         previous.classList.remove("disabled");
+      //       }
+      //     }
+      //   });
+      // });
 
-      // Start observing the player element for attribute changes
-      observer.observe(player, {
-        attributes: true,
-        attributeFilter: ["data-overlay"],
-      });
+      // // Start observing the player element for attribute changes
+      // observer.observe(player, {
+      //   attributes: true,
+      //   attributeFilter: ["data-overlay"],
+      // });
 
-      if (player.hasAttribute("data-overlay")) {
-        // indicator.textContent = "playing";
-        next.disabled = true;
-        next.classList.add("disabled");
-        previous.disabled = true;
-        previous.classList.add("disabled");
-      } else {
-        // indicator.textContent = "paused";
-        next.disabled = false;
-        next.classList.remove("disabled");
-        previous.disabled = false;
-        previous.classList.remove("disabled");
-      }
+      // if (player.hasAttribute("data-overlay")) {
+      //   // indicator.textContent = "playing";
+      //   next.disabled = true;
+      //   next.classList.add("disabled");
+      //   previous.disabled = true;
+      //   previous.classList.add("disabled");
+      // } else {
+      //   // indicator.textContent = "paused";
+      //   next.disabled = false;
+      //   next.classList.remove("disabled");
+      //   previous.disabled = false;
+      //   previous.classList.remove("disabled");
+      // }
     </script>
   </body>
 </html>
